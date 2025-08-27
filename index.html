@@ -1,0 +1,423 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Organigramme Groupe MGD</title>
+  <style>
+    .logo {
+  text-align: center; /* ✅ centrage */
+  margin-bottom: 20px;
+}
+.logo img {
+  max-width: 150px; /* ✅ logo réduit */
+  height: auto;
+}
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+      font-size: 11px; /* ✅ police réduite partout */
+    }
+    .container {
+      max-width: 1800px;
+      width:95% ;
+      margin: auto;
+      background: white;
+      padding: 50px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 30px;
+      font-size: 14px;
+    }
+    .tree {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-bottom: 20px;
+    }
+    .node {
+      margin: 10px;
+      position: relative;
+      text-align: center;
+      cursor: pointer;
+    }
+    .node-content {
+      color: white;
+      padding: 10px 15px;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      transition: all 0.3s;
+      user-select: none;
+      display: inline-block;
+      position: relative;
+      font-size: 11px;
+    }
+    .node-content:hover {
+      transform: translateY(-3px);
+    }
+    /* Couleurs */
+    .top-level { background: #1E5631; }
+    .top-level.sylvie { background: #1E5631; }
+    .sub-level { background: #A3CFA7; }
+
+    /* enfants toujours alignés horizontalement */
+    .children {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+    .toggle-icon {
+      display: block;
+      margin: 5px auto 0 auto;
+      font-size: 0.7em;
+      transition: transform 0.3s;
+      user-select: none;
+    }
+    .node-content.active .toggle-icon {
+      transform: rotate(180deg);
+    }
+    .note {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 0.8em;
+      color: #7f8c8d;
+    }
+    @media (max-width: 768px) {
+      .tree {
+        flex-direction: column;
+        gap: 20px;
+      }
+      .children {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="logo">
+  <img src="https://cdn.prod.website-files.com/65afc0990e6e1ae61d846f55/65afce130399b3705910d6ea_mgd-logo.webp" 
+       alt="Logo Groupe MGD" />
+</div>
+    <h1>ORGANIGRAMME MGD GROUPE</h1>
+    <div class="tree">
+      <!-- Arnaud Morinet -->
+      <div class="node">
+        <div class="node-content top-level" id="arnaud" onclick="toggleAll()">
+          <div><strong>ARNAUD MORINET</strong></div>
+          <div>Directeur Général</div>
+          <span class="toggle-icon">▼</span>
+        </div>
+      </div>
+      <!-- Sylvie Morinet -->
+      <div class="node">
+        <div class="node-content top-level sylvie" id="sylvie" onclick="toggleAll()">
+          <div><strong>SYLVIE MORINET</strong></div>
+          <div>Directrice Ressources Humaines</div>
+          <span class="toggle-icon">▼</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ensemble des enfants -->
+    <div class="children hidden" id="allChildren">
+
+     <!-- Lucas Morinet -->
+<div class="node">
+  <div class="node-content sub-level" onclick="toggleChildren(this)">
+    <div><strong>LUCAS MORINET</strong></div>
+    <div>Directeur d'exploitation</div>
+    <span class="toggle-icon">▼</span>
+  </div>
+  <div class="children hidden">
+    <!-- Joanna -->
+    <div class="node">
+      <div class="node-content sub-level">
+        <div><strong>JOANNA BATOUCHE</strong></div>
+        <div>Assist admin. ventes & achats</div>
+      </div>
+    </div>
+    <!-- Pierre déplacé sous Lucas -->
+    <div class="node">
+      <div class="node-content sub-level">
+        <div><strong>PIERRE-LOUIS LESQUOY</strong></div>
+        <div>Commercial</div>
+      </div>
+    </div>
+    <!-- ✅ Aziz ajouté -->
+    <div class="node">
+      <div class="node-content sub-level">
+        <div><strong>AZIS BOUALAM</strong></div>
+        <div>Commercial GMS</div>
+      </div>
+    </div>
+    <!-- ✅ Frédéric Delaby ajouté -->
+    <div class="node">
+      <div class="node-content sub-level">
+        <div><strong>FRÉDÉRIC DELABY</strong></div>
+        <div>Responsable Logistique</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+     <!-- Ludovic Larousse -->
+<div class="node">
+  <div class="node-content sub-level" onclick="toggleChildren(this)">
+    <div><strong>LUDOVIC LAROUSSE</strong></div>
+    <div>Directeur d'exploitation</div>
+    <span class="toggle-icon">▼</span>
+  </div>
+  <div class="children hidden">
+
+    <!-- Gaëtan -->
+    <div class="node">
+      <div class="node-content sub-level" onclick="toggleChildren(this)">
+        <div><strong>Service Commercial</strong></div>
+        <div></div>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="children hidden">
+        <div class="node"><div class="node-content sub-level"><div><strong>Pierre-Alexandre</strong></div><div>Commercial GMS</div></div></div>
+        <div class="node"><div class="node-content sub-level"><div><strong>JEROM</strong></div><div>Commercial Grands comptes</div></div></div>
+        <div class="node"><div class="node-content sub-level"><div><strong>SEBASTIEN</strong></div><div>Commercial Légumes</div></div></div>
+        <div class="node"><div class="node-content sub-level"><div><strong>CHARLIE</strong></div><div>Commercial Fruits</div></div></div>
+        <div class="node"><div class="node-content sub-level"><div><strong>STEPHANE</strong></div><div>Commercial Expédition</div></div></div>
+        <div class="node"><div class="node-content sub-level"><div><strong>BENJAMIN</strong></div><div>Commercial Légumes</div></div></div>
+        <div class="node"><div class="node-content sub-level"><div><strong>NOA</strong></div><div>Commercial </div></div></div>
+        <div class="node"><div class="node-content sub-level"><div><strong>AMBRE</strong></div><div>Commercial Légumes</div></div></div>
+      </div>
+    </div>
+
+    <!-- Service Logistique -->
+    <div class="node">
+      <div class="node-content sub-level" onclick="toggleChildren(this)">
+        <div><strong>Service Logistique & Préparation</strong></div>
+        <div></div>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="children hidden">
+        <div class="node"><div class="node-content sub-level"><div><strong>NICOLAS</strong></div><div>Responsable Préparation</div></div></div>
+        <div class="node"><div class="node-content sub-level"><div><strong>Enfant 2</strong></div><div>Poste</div></div></div>
+        <div class="node"><div class="node-content sub-level"><div><strong>Enfant 3</strong></div><div>Poste</div></div></div>
+      </div>
+    </div>
+
+    <!-- Carreau -->
+    <div class="node">
+      <div class="node-content sub-level">
+        <div><strong>Service Commercial Carreau</strong></div>
+        <div></div>
+      </div>
+    </div>
+
+    <!-- administration -->
+    <div class="node">
+      <div class="node-content sub-level">
+        <div><strong>Service Administratif</strong></div>
+        <div></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+      <!-- Frédéric Derain -->
+      <div class="node">
+        <div class="node-content sub-level" onclick="toggleChildren(this)">
+          <div><strong>FREDERIC DERAIN</strong></div>
+          <div>Directeur Administratif et Finance</div>
+          <span class="toggle-icon">▼</span>
+        </div>
+        <div class="children hidden">
+          <!-- Younes -->
+          <div class="node">
+            <div class="node-content sub-level" onclick="toggleChildren(this)">
+              <div><strong>YOUNES MABROUK</strong></div>
+              <div>Responsable Comptable Groupe</div>
+              <span class="toggle-icon">▼</span>
+            </div>
+            <!-- Afaf, Isabelle, Nathalie sous Younes -->
+            <div class="children hidden">
+              <div class="node">
+                <div class="node-content sub-level">
+                  <div><strong>AFAF CHAHID</strong></div>
+                  <div>Assistante Comptable</div>
+                </div>
+              </div>
+              <div class="node">
+                <div class="node-content sub-level">
+                  <div><strong>ISABELLE GIRAUDET</strong></div>
+                  <div>Assistante comptable & RH</div>
+                </div>
+              </div>
+              <div class="node">
+                <div class="node-content sub-level">
+                  <div><strong>NATHALIE JEANBOURQUIN</strong></div>
+                  <div>Assistante Comptable</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ingrid Delgado -->
+      <div class="node">
+        <div class="node-content sub-level" onclick="toggleChildren(this)">
+          <div><strong>INGRID BELGADO</strong></div>
+          <div>Directrice d'exploitation</div>
+          <span class="toggle-icon">▼</span>
+        </div>
+        <div class="children hidden">
+          <div class="node">
+            <div class="node-content sub-level">
+              <div><strong>DJAMEL TAZARINE</strong></div>
+              <div>Acheteur & Vendeur</div>
+            </div>
+          </div>
+          <div class="node">
+            <div class="node-content sub-level">
+              <div><strong>PASCAL DEZ</strong></div>
+              <div>Acheteur & Vendeur</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stéphane Begard -->
+<div class="node">
+  <div class="node-content sub-level" onclick="toggleChildren(this)">
+    <div><strong>STEPHANE BEGARD</strong></div>
+    <div>Directeur Carreau</div>
+    <span class="toggle-icon">▼</span>
+  </div>
+  <div class="children hidden">
+    <!-- Monica -->
+    <div class="node">
+      <div class="node-content sub-level">
+        <div><strong>MONICA DOS SANTOS</strong></div>
+        <div>Responsable administrative</div>
+      </div>
+    </div>
+    <!-- Caroline -->
+    <div class="node">
+      <div class="node-content sub-level">
+        <div><strong>CAROLINE MESSANT</strong></div>
+        <div>Acheteuse & Vendeuse</div>
+      </div>
+    </div>
+    <!-- Aziz (déplacé sous Stéphane) -->
+    <div class="node">
+      <div class="node-content sub-level">
+        <div><strong>AZIZ SALHI</strong></div>
+        <div>Acheteur & Vendeur</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    </div>
+
+    <div class="note">
+      Groupe MGD 2025 - Tous droits réservés
+    </div>
+  </div>
+
+  <script>
+function toggleAll() {
+  const allChildren = document.getElementById('allChildren');
+  const arnaud = document.getElementById('arnaud');
+  const sylvie = document.getElementById('sylvie');
+  const isHidden = allChildren.classList.contains('hidden');
+
+  if (isHidden) {
+    allChildren.classList.remove('hidden');
+    arnaud.classList.add('active');
+    sylvie.classList.add('active');
+  } else {
+    allChildren.classList.add('hidden');
+    arnaud.classList.remove('active');
+    sylvie.classList.remove('active');
+
+    const openChildren = allChildren.querySelectorAll('.children:not(.hidden)');
+    openChildren.forEach(child => child.classList.add('hidden'));
+    const activeNodes = allChildren.querySelectorAll('.node-content.active');
+    activeNodes.forEach(node => node.classList.remove('active'));
+  }
+}
+
+function toggleChildren(el) {
+  const parentNode = el.closest('.node');
+  const children = parentNode.querySelector(':scope > .children');
+  if (!children) return;
+
+  const isHidden = children.classList.contains('hidden');
+
+  // ✅ CAS PARTICULIER : Si on clique sur LUDOVIC → réafficher tous ses services
+  if (el.innerText.includes("LUDOVIC LAROUSSE")) {
+    const allServices = children.querySelectorAll(':scope > .node');
+    allServices.forEach(service => service.classList.remove('hidden'));
+  }
+
+  // ✅ CAS PARTICULIER : si on clique sur un service de Ludovic → cacher les autres
+  const parentOfService = parentNode.parentElement;
+  if (
+    parentOfService &&
+    parentOfService.parentElement.querySelector('.node-content strong')?.innerText.includes("LUDOVIC LAROUSSE")
+  ) {
+    const cousins = parentOfService.querySelectorAll(':scope > .node');
+    cousins.forEach(cousin => {
+      if (cousin !== parentNode) cousin.classList.add('hidden');
+    });
+  }
+
+  // ✅ Fermer tous les frères du même niveau (comportement général)
+  const siblings = parentNode.parentElement.querySelectorAll(':scope > .node > .children');
+  siblings.forEach(sib => {
+    if (sib !== children) {
+      sib.classList.add('hidden');
+      const sibNode = sib.parentElement.querySelector(':scope > .node-content');
+      if (sibNode) sibNode.classList.remove('active');
+    }
+  });
+
+  // ✅ Toggle du nœud cliqué
+  if (isHidden) {
+    children.classList.remove('hidden');
+    el.classList.add('active');
+  } else {
+    children.classList.add('hidden');
+    el.classList.remove('active');
+
+    // Fermer récursivement les sous-enfants
+    const openChildren = children.querySelectorAll('.children:not(.hidden)');
+    openChildren.forEach(child => child.classList.add('hidden'));
+    const activeNodes = children.querySelectorAll('.node-content.active');
+    activeNodes.forEach(node => node.classList.remove('active'));
+  }
+}
+</script>
+</body>
+</html>
