@@ -7,6 +7,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -75,6 +76,22 @@
     .top-level { background: #1E5631; }
     .top-level.sylvie { background: #1E5631; }
     .sub-level { background: #A3CFA7; }
+    /* Couleurs personnalisées */
+.prim { 
+  background: #f6b26b;  /* Orange clair */
+}
+
+.charpentier { 
+  background: #6fdcb8;  /* Bleu-vert clair */
+}
+
+.agruban { 
+  background: #ffe599;  /* Vert doux */
+}
+.fonction transversale { 
+  background: #a47eb3;  /* Vert doux */
+}
+
 
     /* enfants toujours alignés horizontalement */
     .children {
@@ -145,7 +162,7 @@
 
   <!-- PRIM SELECT (parent de Ingrid Delgado) -->
   <div class="node">
-    <div class="node-content sub-level" onclick="toggleChildren(this)">
+    <div class="node-content sub-level prim" onclick="toggleChildren(this)">
       <div><strong>PRIM SELECT</strong></div>
       <div></div>
       <span class="toggle-icon">▼</span>
@@ -172,7 +189,7 @@
 
   <!-- CHARPENTIER PRIMEURS (parent de Ludovic Larousse) -->
   <div class="node">
-    <div class="node-content sub-level" onclick="toggleChildren(this)">
+    <div class="node-content sub-level charpentier" onclick="toggleChildren(this)">
       <div><strong>CHARPENTIER PRIMEURS</strong></div>
       <div></div>
       <span class="toggle-icon">▼</span>
@@ -323,7 +340,7 @@
 
      <!-- --- SECTION AGRUBAN (insère ceci à l’endroit voulu dans #allChildren) --- -->
 <div class="node">
-  <div class="node-content sub-level" onclick="toggleChildren(this)">
+  <div class="node-content sub-level agruban" onclick="toggleChildren(this)">
     <div><strong>AGRUBAN</strong></div>
     <div></div>
     <span class="toggle-icon">▼</span>
